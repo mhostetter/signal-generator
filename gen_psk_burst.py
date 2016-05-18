@@ -77,7 +77,7 @@ sigma2 = no/2
 sigma = np.sqrt(sigma2)
 
 # Add noise
-samps += np.random.normal(0, sigma, len(samps))
+samps += (np.random.normal(0, sigma, len(samps)) + 1j*np.random.normal(0, sigma, len(samps)))
 
 # Format interleaved IQ float array
 floats = np.zeros(2*len(samps), dtype=np.float32)
