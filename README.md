@@ -3,6 +3,7 @@ A suite of Python scripts to generate modulated bursts.  Designed for creating t
 
 ## Scripts
 * `gen_psk_burst.py`
+* `gen_fsk_burst.py`
 
 ## Usage
 Fill this in.
