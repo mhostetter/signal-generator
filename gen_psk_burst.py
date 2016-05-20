@@ -38,13 +38,14 @@ print "  fsym   = %d sym/s" % (fsym)
 print "  sps    = %d" % (sps)
 print "  Eb/N0  = %1.1f dB" % (ebno_db)
 
+# Example: M-PSK
 # Symbol 0 = 0/M*360 deg
 # Symbol 1 = 1/M*360 deg
 # Symbol 2 = 2/M*360 deg
 # etc ...
 
 # symbols = np.concatenate((np.zeros(16), np.random.randint(0,M,64)))
-symbols = np.concatenate((np.array([0,2]*8), np.random.randint(0,M,64)))
+symbols = np.concatenate((np.array([0,M/2]*8), np.random.randint(0,M,64)))
 symbols = symbols.astype(float)
 
 # Number of samples in the burst
@@ -54,13 +55,13 @@ N_samps = sps*N_syms
 print "\n%d symbols" % (N_syms)
 print symbols
 
-# Calculate phase values for each samples (changes per symbol)
+# Calculate phase values for each sample (changes per symbol)
 phase = np.zeros(N_samps)
 for ii in range(0,N_syms):
     phase[ii*sps:(ii+1)*sps] = (symbols[ii]/M*2*np.pi)*np.ones(sps)
 
 # Calculate complex IQ samples
-samps = np.exp(1j*(2*np.pi*fc/fs*np.arange(0,N_samps) + phase))
+samps = np.exp(1j*(2*np.pi*fc/fs*np.arange(0,N_samps) + phase + np.pi/4))
 
 # Add noise (zeros for now) samples before and after the burst
 samps = np.concatenate((np.zeros(int(fs*20e-3)), samps, np.zeros(int(fs*20e-3))))
