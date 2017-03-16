@@ -29,7 +29,7 @@ fsym = 50e3 # symbols/second
 sps = int(fs/fsym) # samples/symbol
 fdev = 100e3 # Hz
 ebno_db = 30
-filename = "/home/matt/IQ/fsk_burst.fc32"
+filename = "fsk_burst.fc32"
 
 print "Generating FSK Burst..."
 print "  M      = %d" % (M)

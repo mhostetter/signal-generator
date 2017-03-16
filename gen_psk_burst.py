@@ -28,7 +28,7 @@ fs = 500e3 # samples/second
 fsym = 50e3 # symbols/second
 sps = int(fs/fsym) # samples/symbol
 ebno_db = 30
-filename = "/home/matt/IQ/psk_burst.fc32"
+filename = "psk_burst.fc32"
 
 print "Generating PSK Burst..."
 print "  M      = %d" % (M)
@@ -45,7 +45,7 @@ print "  Eb/N0  = %1.1f dB" % (ebno_db)
 # etc ...
 
 # symbols = np.concatenate((np.zeros(16), np.random.randint(0,M,64)))
-symbols = np.concatenate((np.array([0,M/2]*8), np.random.randint(0,M,64)))
+symbols = np.concatenate((np.array([0,M/2]*32), np.random.randint(0,M,64)))
 symbols = symbols.astype(float)
 
 # Number of samples in the burst

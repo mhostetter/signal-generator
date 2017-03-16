@@ -28,7 +28,7 @@ fs = 500e3 # samples/second
 fsym = 50e3 # symbols/second
 sps = int(fs/fsym) # samples/symbol
 ebno_db = 1000
-filename = "/home/matt/IQ/qam_burst.fc32"
+filename = "qam_burst.fc32"
 
 print "Generating QAM Burst..."
 print "  M      = %d" % (M)
